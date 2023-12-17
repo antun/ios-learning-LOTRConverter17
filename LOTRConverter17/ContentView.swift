@@ -112,6 +112,12 @@ struct ContentView: View {
             }
             //.border(.blue)
         }
+        .sheet(isPresented: $showExchangeInfo){
+            // This sheet modifer can go anywhere, but it's good practice to
+            // attach to the top-most view.
+            ExchangeInfo()
+        }
+
     }
 }
 
