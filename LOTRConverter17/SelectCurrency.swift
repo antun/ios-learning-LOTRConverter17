@@ -31,7 +31,18 @@ struct SelectCurrency: View {
                     .fontWeight(.bold)
                
                 // Currency icons
-                CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
+                LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+                    ForEach(0..<5) { _ in
+                        CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
+                    }
+                    /*
+                    CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
+                    CurrencyIcon(currencyImage: .silverpenny, currencyName: "Silver Penny")
+                    CurrencyIcon(currencyImage: .silverpiece, currencyName: "Silver Piece")
+                    CurrencyIcon(currencyImage: .goldpenny, currencyName: "Gold Penny")
+                    CurrencyIcon(currencyImage: .goldpiece, currencyName: "Gold Piece")
+                    */
+                }
                 
                 // Done button
                 Button("Done") {
