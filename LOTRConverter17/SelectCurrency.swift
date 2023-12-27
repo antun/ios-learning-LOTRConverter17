@@ -10,6 +10,8 @@ import SwiftUI
 struct SelectCurrency: View {
     @Environment(\.dismiss) var dismiss
     
+    @State var currency: Currency
+    
     var body: some View {
         ZStack {
             // Parchment background
@@ -33,7 +35,21 @@ struct SelectCurrency: View {
                 // Currency icons
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
                     ForEach(Currency.allCases) { currency in
-                        CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
+                        // self.currency is the state one.
+                        if (self.currency == currency) {
+                            CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
+                                .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                        .stroke(lineWidth: 3)
+                                        .opacity(0.5)
+                                }
+                        } else {
+                            CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
+                                .onTapGesture {
+                                    self.currency = currency
+                                }
+                        }
                     }
                 }
                 
@@ -41,7 +57,7 @@ struct SelectCurrency: View {
                 Text("Select the currency you would like to convert to:")
                     .fontWeight(.bold)
                 
-                // Currency icons   
+                // Currency icons
                 
                 
                 // Done button
@@ -62,6 +78,6 @@ struct SelectCurrency: View {
 }
 
 #Preview {
-    SelectCurrency()
+    SelectCurrency(currency: .goldPenny)
 }
 
