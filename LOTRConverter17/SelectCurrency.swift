@@ -32,17 +32,17 @@ struct SelectCurrency: View {
                
                 // Currency icons
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
-                    ForEach(0..<5) { _ in
-                        CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
+                    ForEach(Currency.allCases) { currency in
+                        CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
                     }
-                    /*
-                    CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
-                    CurrencyIcon(currencyImage: .silverpenny, currencyName: "Silver Penny")
-                    CurrencyIcon(currencyImage: .silverpiece, currencyName: "Silver Piece")
-                    CurrencyIcon(currencyImage: .goldpenny, currencyName: "Gold Penny")
-                    CurrencyIcon(currencyImage: .goldpiece, currencyName: "Gold Piece")
-                    */
                 }
+                
+                // Text
+                Text("Select the currency you would like to convert to:")
+                    .fontWeight(.bold)
+                
+                // Currency icons   
+                
                 
                 // Done button
                 Button("Done") {
