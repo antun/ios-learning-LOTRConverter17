@@ -50,7 +50,9 @@ enum Currency: Double, CaseIterable, Identifiable {
         }
     }
     
-    func convert(amountString: String, currency: Currency) -> String {
+    // Here _ is the argument label which lets us call the function without the argument name.
+    // ... and "to" is the currency label so we can call this more elegantly
+    func convert(_ amountString: String, to currency: Currency) -> String {
 
         guard let doubleAmount = Double(amountString) else {
             // guard/else will be  is like try/catch - this is the fallback:
