@@ -10,8 +10,8 @@ import SwiftUI
 struct SelectCurrency: View {
     @Environment(\.dismiss) var dismiss
     
-    @State var topCurrency: Currency = .silverPenny
-    @State var bottomCurrency: Currency = .goldPenny
+    @Binding var topCurrency: Currency
+    @Binding var bottomCurrency: Currency
     
     
     var body: some View {
@@ -35,7 +35,7 @@ struct SelectCurrency: View {
                     .fontWeight(.bold)
                
                 // Currency icons
-                IconGrid(currency: topCurrency)
+                IconGrid(currency: $topCurrency)
                 
                 
                 // Text
@@ -43,7 +43,7 @@ struct SelectCurrency: View {
                     .fontWeight(.bold)
                 
                 // Currency icons
-                IconGrid(currency: bottomCurrency)
+                IconGrid(currency: $bottomCurrency)
 
                 // Done button
                 Button("Done") {
@@ -63,6 +63,6 @@ struct SelectCurrency: View {
 }
 
 #Preview {
-    SelectCurrency()
+    SelectCurrency(topCurrency: .constant(.copperPenny), bottomCurrency: .constant(.silverPenny))
 }
 
