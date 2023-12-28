@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2260B0782B3CF2FF0060D29A /* IconGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260B0772B3CF2FF0060D29A /* IconGrid.swift */; };
 		3743B6592B2D1DFA0049664B /* LOTRConverter17App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743B6582B2D1DFA0049664B /* LOTRConverter17App.swift */; };
 		3743B65B2B2D1DFA0049664B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743B65A2B2D1DFA0049664B /* ContentView.swift */; };
 		3743B65D2B2D1DFD0049664B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3743B65C2B2D1DFD0049664B /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2260B0772B3CF2FF0060D29A /* IconGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGrid.swift; sourceTree = "<group>"; };
 		3743B6552B2D1DFA0049664B /* LOTRConverter17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LOTRConverter17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3743B6582B2D1DFA0049664B /* LOTRConverter17App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOTRConverter17App.swift; sourceTree = "<group>"; };
 		3743B65A2B2D1DFA0049664B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				3743B6702B2FD3E20049664B /* Currency.swift */,
 				3743B65A2B2D1DFA0049664B /* ContentView.swift */,
 				3743B66C2B2F72B40049664B /* SelectCurrency.swift */,
+				2260B0772B3CF2FF0060D29A /* IconGrid.swift */,
 				3743B66E2B2F75ED0049664B /* CurrencyIcon.swift */,
 				3743B6682B2D3D060049664B /* ExchangeInfo.swift */,
 				3743B66A2B2D43B70049664B /* ExchangeRate.swift */,
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2260B0782B3CF2FF0060D29A /* IconGrid.swift in Sources */,
 				3743B66B2B2D43B70049664B /* ExchangeRate.swift in Sources */,
 				3743B66D2B2F72B40049664B /* SelectCurrency.swift in Sources */,
 				3743B6692B2D3D060049664B /* ExchangeInfo.swift in Sources */,
