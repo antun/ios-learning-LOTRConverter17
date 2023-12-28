@@ -68,11 +68,7 @@ struct ContentView: View {
                         TextField("Amount", text: $leftAmount)
                             .textFieldStyle(.roundedBorder)
                             .focused($leftTyping)
-                            .onChange(of: leftAmount) {
-                                if (leftTyping == true) {
-                                    rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
-                                }
-                            }
+                            .keyboardType(.decimalPad)
                         
                     }
                     // Equal sign
@@ -108,11 +104,8 @@ struct ContentView: View {
                             .textFieldStyle(.roundedBorder)
                             .focused($rightTyping)
                             .multilineTextAlignment(.trailing)
-                            .onChange(of: rightAmount) {
-                                if (rightTyping) {
-                                    leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
-                                }
-                            }
+                            .keyboardType(.decimalPad)
+
                     }
                 }
                 .padding()
@@ -138,6 +131,23 @@ struct ContentView: View {
                 
             }
             //.border(.blue)
+        }
+        .onChange(of: leftAmount) {
+            if (leftTyping == true) {
+                rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
+            }
+        }
+        .onChange(of: leftCurrency) {
+            rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
+        }
+
+        .onChange(of: rightAmount) {
+            if (rightTyping) {
+                leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
+            }
+        }
+        .onChange(of: rightCurrency) {
+            leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
         }
         .sheet(isPresented: $showExchangeInfo){
             // This sheet modifer can go anywhere, but it's good practice to
